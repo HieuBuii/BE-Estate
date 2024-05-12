@@ -30,6 +30,7 @@ export const register = async (req, res) => {
         httpOnly: true,
         secure: true,
         maxAge: AGE,
+        sameSite: "None",
       })
       .status(200)
       .json({ message: "Create user successfully", data: userInfo });
@@ -75,6 +76,7 @@ export const login = async (req, res) => {
         httpOnly: true,
         secure: true,
         maxAge: AGE,
+        sameSite: "None",
       })
       .status(200)
       .json({ message: "Login successfully", data: userInfo });
