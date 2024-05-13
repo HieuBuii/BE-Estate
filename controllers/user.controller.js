@@ -46,7 +46,7 @@ export const updateUser = async (req, res) => {
 
       if (!isValidPassword)
         return res
-          .status(401)
+          .status(404)
           .json({ message: "Current password is not correct" });
     }
     let hashedPassword = null;

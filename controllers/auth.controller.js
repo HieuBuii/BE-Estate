@@ -50,7 +50,10 @@ export const login = async (req, res) => {
       where: { email },
     });
 
-    if (!user) return res.status(401).json({ message: "Invalid credentials" });
+    if (!user)
+      return res
+        .status(404)
+        .json({ message: "Email or password is not correct" });
 
     //check if password is correct
 
@@ -61,7 +64,7 @@ export const login = async (req, res) => {
 
     if (!isValidPassword)
       return res
-        .status(401)
+        .status(404)
         .json({ message: "Email or password is not correct" });
 
     //generate cookie token and send to the client
